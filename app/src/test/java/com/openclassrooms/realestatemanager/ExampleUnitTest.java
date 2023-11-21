@@ -39,6 +39,4 @@ public class ExampleUnitTest {
         String actualDate = Utils.getTodayDate();
         assertEquals(dateFormat.format(new Date()), actualDate);
     }
-
-git
 }
