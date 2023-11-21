@@ -14,13 +14,13 @@ public class Property {
     private String description;
     private List<Photos> photo;
     private Address address;
-    private List<String> pointOfInterestNearby;
+    private List<PointOrInterest> pointOfInterestNearby;
     private boolean isAvailable;
     private  long availableSince;
     private long saleDate;
     private RealEstateManger agent ;
 
-    public Property(long id, Type type, double price, double surface, int nbOfRooms, String description, List<Photos> photo, Address address, List<String> pointOfInterestNearby, boolean isAvailable, long availableSince, long saleDate, RealEstateManger agent) {
+    public Property(long id, Type type, double price, double surface, int nbOfRooms, String description, List<Photos> photo, Address address, List<PointOrInterest> pointOfInterestNearby, boolean isAvailable, long availableSince, long saleDate, RealEstateManger agent) {
         this.id = id;
         this.type = type;
         this.price = price;
@@ -68,7 +68,7 @@ public class Property {
         return address;
     }
 
-    public List<String> getPointOfInterestNearby() {
+    public List<PointOrInterest> getPointOfInterestNearby() {
         return pointOfInterestNearby;
     }
 
@@ -120,7 +120,7 @@ public class Property {
         this.address = address;
     }
 
-    public void setPointOfInterestNearby(List<String> pointOfInterestNearby) {
+    public void setPointOfInterestNearby(List<PointOrInterest> pointOfInterestNearby) {
         this.pointOfInterestNearby = pointOfInterestNearby;
     }
 
@@ -139,8 +139,42 @@ public class Property {
     public void setAgent(RealEstateManger agent) {
         this.agent = agent;
     }
-    // -------------- INNER -------------- //
+// ----------------------   INNERS  ----------------------- //
 
+    public static class PointOrInterest {
+        private final String name;
+
+        public PointOrInterest(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+    public static class Address {
+        private final String locality;
+        private final String postalCode;
+        private final String formattedAddress;
+
+        public Address(String locality, String postalCode, String formattedAddress) {
+            this.locality = locality;
+            this.postalCode = postalCode;
+            this.formattedAddress = formattedAddress;
+        }
+
+        public String getLocality() {
+            return locality;
+        }
+
+        public String getPostalCode() {
+            return postalCode;
+        }
+
+        public String getFormattedAddress() {
+            return formattedAddress;
+        }
+    }
     enum Type {
         APARTMENT,
         LOFT,
