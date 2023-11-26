@@ -7,13 +7,17 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
-import com.openclassrooms.realestatemanager.entities.EntitiesRelations;
 import com.openclassrooms.realestatemanager.entities.RealEstateAgentEntity;
+import com.openclassrooms.realestatemanager.entities.Relationships;
 
 import java.util.List;
 
 @Dao
 public interface RealEstateAgentDao {
+    @Query("SELECT * FROM RealEstatAgent WHERE agent_id=:id")
+
+    RealEstateAgentEntity getById(int id);
+
     @Update
     void update(RealEstateAgentEntity agent);
 
@@ -23,6 +27,6 @@ public interface RealEstateAgentDao {
     @Insert
     void create(RealEstateAgentEntity agent);
 @Transaction
-    @Query("SELECT * FROM RealEstatAgent")
-    List<EntitiesRelations.RealEstateAgentWithProperties> getAllAgentWithProperties();
+@Query("SELECT * FROM RealEstatAgent")
+List<Relationships.RealEstateAgentWithProperties> getAllAgentWithProperties();
 }

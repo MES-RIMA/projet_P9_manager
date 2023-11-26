@@ -114,7 +114,7 @@ public class Property {
 
         return pointOfInterestNearby;
     }
-
+    @SuppressWarnings("unchecked")
     public void setPointOfInterestNearby(List<? extends PointOrInterest> pointOfInterestNearby) {
         this.pointOfInterestNearby = (List<PointOrInterest>) pointOfInterestNearby;
     }
@@ -154,7 +154,7 @@ public class Property {
     // ----------------------   INNERS  ----------------------- //
     public static class PointOrInterest {
         private final String name;
-
+        private int id;
         public PointOrInterest(String name) {
             this.name = name;
         }
@@ -162,6 +162,7 @@ public class Property {
         public String getName() {
             return name;
         }
+        public int getId() {return id;}
     }
 
     public static class Address {

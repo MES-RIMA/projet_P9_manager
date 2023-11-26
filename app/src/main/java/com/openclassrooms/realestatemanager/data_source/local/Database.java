@@ -11,16 +11,16 @@ import com.openclassrooms.realestatemanager.dao.PointOfInterestDao;
 import com.openclassrooms.realestatemanager.dao.PropertyDao;
 import com.openclassrooms.realestatemanager.dao.PropertyPointOfInterestCrossRefDao;
 import com.openclassrooms.realestatemanager.dao.RealEstateAgentDao;
-import com.openclassrooms.realestatemanager.entities.EntitiesRelations;
 import com.openclassrooms.realestatemanager.entities.PhotoEntity;
 import com.openclassrooms.realestatemanager.entities.PointOfInterestEntity;
 import com.openclassrooms.realestatemanager.entities.PropertyEntity;
 import com.openclassrooms.realestatemanager.entities.RealEstateAgentEntity;
+import com.openclassrooms.realestatemanager.entities.Relationships;
 import com.openclassrooms.realestatemanager.models.RealEstateAgent;
 
 
 @androidx.room.Database(
-        entities = {PropertyEntity.class, PhotoEntity.class, RealEstateAgentEntity.class,PointOfInterestEntity.class, EntitiesRelations.PropertyPointOfInterestCrossRef.class},
+        entities = {PropertyEntity.class, PhotoEntity.class, RealEstateAgentEntity.class,PointOfInterestEntity.class, Relationships.PropertyPointOfInterestCrossRef.class},
         version = 1,
         exportSchema = false)
 public abstract class Database extends RoomDatabase {

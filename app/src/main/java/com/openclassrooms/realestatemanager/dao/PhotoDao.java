@@ -12,6 +12,8 @@ import java.util.List;
 
 @Dao
 public interface PhotoDao {
+    @Query("SELECT * FROM photo_entity WHERE property_id=:propertyId")
+    List<PhotoEntity> getByPropertyId(int propertyId);
 
     @Update
     void update(PhotoEntity photo);
@@ -20,7 +22,7 @@ public interface PhotoDao {
     void delete(PhotoEntity photo);
 
     @Insert
-    void create(PhotoEntity photo);
+    void create(PhotoEntity... photo);
 
 }
 
