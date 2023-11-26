@@ -1,146 +1,157 @@
 package com.openclassrooms.realestatemanager.models;
 
-
-import android.location.Address;
-
 import java.util.List;
 
 public class Property {
-    private long id;
+
+    private int id;
     private Type type;
     private double price;
     private double surface;
     private int NbOfRooms;
     private String description;
-    private List<Photos> photo;
+    private List<Photo>photoList;
     private Address address;
     private List<PointOrInterest> pointOfInterestNearby;
     private boolean isAvailable;
-    private  long availableSince;
+    private long availableSince;
     private long saleDate;
-    private RealEstateManger agent ;
+    private RealEstateAgent agent;
 
-    public Property(long id, Type type, double price, double surface, int nbOfRooms, String description, List<Photos> photo, Address address, List<PointOrInterest> pointOfInterestNearby, boolean isAvailable, long availableSince, long saleDate, RealEstateManger agent) {
-        this.id = id;
+    public Property(
+            Type type,
+            double price,
+            double surface,
+            int NbOfRooms,
+            String description,
+            List<Photo> photoList,
+            Address address,
+            List<PointOrInterest> pointOfInterestNearby,
+            boolean isAvailable,
+            long availableSince,
+            long saleDate,
+            RealEstateAgent agent) {
         this.type = type;
         this.price = price;
         this.surface = surface;
-        NbOfRooms = nbOfRooms;
+        this.NbOfRooms = NbOfRooms;
         this.description = description;
-        this.photo = photo;
+        this.photoList = photoList;
         this.address = address;
         this.pointOfInterestNearby = pointOfInterestNearby;
         this.isAvailable = isAvailable;
         this.availableSince = availableSince;
         this.saleDate = saleDate;
-        this.agent=agent;
+        this.agent = agent;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Type getType() {
         return type;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public double getSurface() {
-        return surface;
-    }
-
-    public int getNbOfRooms() {
-        return NbOfRooms;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public List<Photos> getPhoto() {
-        return photo;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public List<PointOrInterest> getPointOfInterestNearby() {
-        return pointOfInterestNearby;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public long getAvailableSince() {
-        return availableSince;
-    }
-
-    public long getSaleDate() {
-        return saleDate;
-    }
-
-    public RealEstateManger getAgent() {
-        return agent;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
     }
 
+    public double getSurface() {
+        return surface;
+    }
+
     public void setSurface(double surface) {
         this.surface = surface;
     }
 
-    public void setNbOfRooms(int nbOfRooms) {
-        NbOfRooms = nbOfRooms;
+    public int getNbOfRooms() {
+        return NbOfRooms;
+    }
+
+    public void setNumberOfRooms(int numberOfRooms) {
+        this.NbOfRooms = numberOfRooms;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setPhoto(List<Photos> photo) {
-        this.photo = photo;
+    public List<Photo> getPhotoList() {
+        return photoList;
+    }
+
+    @SuppressWarnings("unchecked")
+    public void setPhotoList(List<? extends Photo> photoList) {
+        this.photoList = (List<Photo>) photoList;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
     }
 
-    public void setPointOfInterestNearby(List<PointOrInterest> pointOfInterestNearby) {
-        this.pointOfInterestNearby = pointOfInterestNearby;
+    public List<PointOrInterest> getPointOfInterestNearby() {
+
+        return pointOfInterestNearby;
+    }
+
+    public void setPointOfInterestNearby(List<? extends PointOrInterest> pointOfInterestNearby) {
+        this.pointOfInterestNearby = (List<PointOrInterest>) pointOfInterestNearby;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
 
+    public long getAvailableSince() {
+        return availableSince;
+    }
+
     public void setAvailableSince(long availableSince) {
         this.availableSince = availableSince;
+    }
+
+    public long getSaleDate() {
+        return saleDate;
     }
 
     public void setSaleDate(long saleDate) {
         this.saleDate = saleDate;
     }
 
-    public void setAgent(RealEstateManger agent) {
+    public RealEstateAgent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(RealEstateAgent agent) {
         this.agent = agent;
     }
-// ----------------------   INNERS  ----------------------- //
 
+    // ----------------------   INNERS  ----------------------- //
     public static class PointOrInterest {
         private final String name;
 
@@ -152,6 +163,7 @@ public class Property {
             return name;
         }
     }
+
     public static class Address {
         private final String locality;
         private final String postalCode;
@@ -175,11 +187,11 @@ public class Property {
             return formattedAddress;
         }
     }
-    enum Type {
-        APARTMENT,
-        LOFT,
-        MANOR,
-        HOUSE,
-        Villa
-    }
+
+    public enum Type {
+                APARTMENT,
+                LOFT,
+                MANOR,
+                HOUSE
+            }
 }
